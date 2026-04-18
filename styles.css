@@ -1,0 +1,653 @@
+/* ===================================================================
+   Nonparametric Learning & Optimization Lab — Stylesheet
+   Design: Editorial academic, warm paper + deep wine accent
+   Typography: Fraunces (display) + IBM Plex Sans/Mono (body/meta)
+   =================================================================== */
+
+:root {
+  /* Color system */
+  --paper:        #faf6ee;
+  --paper-warm:   #f2ebdb;
+  --ink:          #1a1a1a;
+  --ink-soft:     #454545;
+  --ink-mute:     #8a8580;
+  --rule:         #d8d0c0;
+  --rule-soft:    #ebe4d4;
+  --accent:       #6d1a2b;
+  --accent-soft:  #f3e4e6;
+
+  /* Typography */
+  --font-display: 'Fraunces', 'Source Serif 4', Georgia, serif;
+  --font-body:    'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Layout */
+  --content-width: 720px;
+  --wide-width:    1000px;
+}
+
+/* Reset & base */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(109, 26, 43, 0.018) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(109, 26, 43, 0.012) 0%, transparent 50%);
+}
+
+/* Layout container */
+.container {
+  max-width: var(--wide-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* ---------- Header & Navigation ---------- */
+.site-header {
+  padding: 2.25rem 0 1.75rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 3.5rem;
+}
+
+.site-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.site-logo-mark {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.7rem;
+  color: var(--accent);
+  letter-spacing: 0.22em;
+  border: 1px solid var(--accent);
+  padding: 0.35rem 0.55rem;
+  border-radius: 2px;
+  line-height: 1;
+}
+
+.site-logo-text {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  font-variation-settings: "opsz" 14;
+}
+
+nav.site-nav {
+  display: flex;
+  gap: 2.25rem;
+  font-size: 0.92rem;
+}
+
+nav.site-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+nav.site-nav a:hover { color: var(--accent); }
+
+nav.site-nav a.current {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Main content frame ---------- */
+main {
+  flex: 1;
+  padding-bottom: 5rem;
+}
+
+.content {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+/* Page kicker + title (used on CV, Research, Members) */
+.page-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.1rem, 5vw, 3.3rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.5rem;
+  font-variation-settings: "opsz" 144;
+  color: var(--ink);
+}
+
+.page-intro {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  max-width: 580px;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ---------- Home: hero section ---------- */
+.hero {
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144;
+  margin-bottom: 1.5rem;
+  max-width: 900px;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 300;
+}
+
+.hero-meta {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.9;
+  margin-top: 1.5rem;
+}
+
+.hero-meta .meta-label {
+  color: var(--ink-mute);
+  display: inline-block;
+  min-width: 5rem;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+}
+
+.hero-meta a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--accent);
+}
+
+.hero-meta a:hover { background: var(--accent-soft); }
+
+/* ---------- Profile block (Home) ---------- */
+.profile-block {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2.75rem;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.profile-photo {
+  width: 200px;
+  height: 250px;
+  background: var(--rule-soft);
+  background-image: url('images/profile.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--rule);
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px -8px rgba(0,0,0,0.08);
+}
+
+.profile-photo::after {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(255,255,255,0.35);
+  pointer-events: none;
+}
+
+.profile-intro p.lead {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 1.35rem;
+  line-height: 1.45;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+  font-variation-settings: "opsz" 36;
+}
+
+/* ---------- Section headings ---------- */
+.section-heading {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 3.5rem 0 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.section-heading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ---------- Body typography ---------- */
+p {
+  margin-bottom: 1.2rem;
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: italic; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+a:hover { border-bottom-color: var(--accent); }
+
+/* ---------- Research themes (Home) ---------- */
+.research-themes {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.research-theme {
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--rule);
+  transition: border-color 0.25s ease;
+}
+
+.research-theme:hover { border-left-color: var(--accent); }
+
+.research-theme-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.18rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  font-variation-settings: "opsz" 24;
+}
+
+.research-theme p { margin-bottom: 0; }
+
+/* ---------- Join Us block ---------- */
+.join-us {
+  margin-top: 2rem;
+  padding: 2rem 2.25rem;
+  background: var(--paper-warm);
+  border-left: 3px solid var(--accent);
+}
+
+.join-us p { margin-bottom: 0; color: var(--ink); }
+
+/* ---------- CV tables & entries ---------- */
+.cv-basics {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.cv-basics tr { border-bottom: 1px solid var(--rule); }
+.cv-basics tr:last-child { border-bottom: none; }
+
+.cv-basics td {
+  padding: 0.85rem 0;
+  font-size: 0.95rem;
+  vertical-align: top;
+}
+
+.cv-basics td:first-child {
+  font-family: var(--font-mono);
+  color: var(--ink-mute);
+  width: 32%;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+}
+
+.cv-basics td:last-child { color: var(--ink); }
+
+.cv-entry {
+  display: grid;
+  grid-template-columns: 135px 1fr;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.cv-entry:last-child { border-bottom: none; }
+
+.cv-date {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-mute);
+  letter-spacing: 0.05em;
+  padding-top: 0.35rem;
+  line-height: 1.5;
+}
+
+.cv-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.12rem;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+  font-variation-settings: "opsz" 20;
+}
+
+.cv-org {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.45rem;
+}
+
+.cv-note {
+  font-size: 0.88rem;
+  color: var(--ink-mute);
+  font-style: italic;
+}
+
+/* Award list */
+.award-list { list-style: none; }
+
+.award-list li {
+  display: grid;
+  grid-template-columns: 135px 1fr;
+  gap: 2rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 0.95rem;
+}
+
+.award-list li:last-child { border-bottom: none; }
+
+.award-list .year {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  padding-top: 0.15rem;
+}
+
+.award-list .desc { color: var(--ink-soft); }
+
+/* Teaching pill groups */
+.teaching-group { margin-bottom: 2rem; }
+
+.teaching-level {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.course-list li {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  color: var(--ink-soft);
+  background: rgba(255,255,255,0.4);
+}
+
+/* ---------- Publications ---------- */
+.pub-year {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 2.2rem;
+  color: var(--accent);
+  margin: 3rem 0 1rem;
+  font-variation-settings: "opsz" 120;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.pub-year:first-of-type { margin-top: 1rem; }
+
+.pub-list {
+  list-style: none;
+  counter-reset: pub-counter;
+}
+
+.pub-item {
+  counter-increment: pub-counter;
+  padding: 1.25rem 0;
+  padding-left: 3rem;
+  position: relative;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.pub-item::before {
+  content: counter(pub-counter, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.pub-item:last-child { border-bottom: none; }
+
+.pub-authors { color: var(--ink); display: block; margin-bottom: 0.15rem; }
+.pub-authors .self { font-weight: 600; color: var(--accent); }
+
+.pub-title { color: var(--ink); display: block; }
+
+.pub-venue {
+  font-style: italic;
+  color: var(--ink-soft);
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.9rem;
+}
+
+/* Talks */
+.talks-list { list-style: none; }
+
+.talks-list li {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.talks-list li:last-child { border-bottom: none; }
+
+.talks-list .year {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  padding-top: 0.1rem;
+}
+
+.talks-list .talk-title {
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.talks-list .venue {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+/* ---------- Members ---------- */
+.member-card {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 2.25rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.member-photo {
+  width: 140px;
+  height: 170px;
+  background: var(--rule-soft);
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px -8px rgba(0,0,0,0.08);
+}
+
+.member-info h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.35rem;
+  margin-bottom: 0.3rem;
+  color: var(--ink);
+}
+
+.member-role {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+}
+
+.member-detail {
+  font-size: 0.93rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.3rem;
+}
+
+.empty-state {
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--ink-mute);
+  background: rgba(0,0,0,0.015);
+  border: 1px dashed var(--rule);
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 2rem 0 2.5rem;
+  margin-top: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-mute);
+  text-align: center;
+  letter-spacing: 0.08em;
+}
+
+.site-footer a {
+  color: var(--ink-mute);
+  border-bottom: none;
+}
+
+.site-footer a:hover { color: var(--accent); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  html { font-size: 16px; }
+  .container { padding: 0 1.25rem; }
+
+  .site-header { padding: 1.5rem 0 1.25rem; margin-bottom: 2.5rem; }
+  .site-header-inner { flex-direction: column; align-items: flex-start; gap: 1.1rem; }
+  nav.site-nav { gap: 1.4rem; font-size: 0.88rem; }
+
+  .profile-block { grid-template-columns: 1fr; gap: 1.75rem; }
+  .profile-photo { width: 160px; height: 200px; }
+
+  .cv-entry, .award-list li, .member-card {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .cv-date, .award-list .year { padding-top: 0; font-size: 0.75rem; }
+
+  .member-card { gap: 1.25rem; }
+  .member-photo { width: 120px; height: 145px; }
+
+  .talks-list li { grid-template-columns: 1fr; gap: 0.4rem; }
+  .talks-list .year { padding-top: 0; }
+
+  .hero-meta .meta-label { display: block; min-width: 0; margin-top: 0.5rem; }
+}

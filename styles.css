@@ -493,7 +493,7 @@ a:hover { border-bottom-color: var(--accent); }
 }
 
 .pub-item::before {
-  content: counter(pub-counter, decimal-leading-zero);
+  content: attr(data-num);
   position: absolute;
   left: 0;
   top: 1.4rem;

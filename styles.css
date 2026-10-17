@@ -966,3 +966,18 @@ a:hover { border-bottom-color: var(--accent); }
   .lightbox { padding: 3.5rem 1rem; }
   .lb-prev, .lb-next { font-size: 2rem; }
 }
+
+
+/* Alumni list */
+.alum-group {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin: 2rem 0 0.4rem;
+}
+.alum-group:first-of-type { margin-top: 0.5rem; }
+
+.alum-list { margin-bottom: 0.5rem; }
+.alum-list .alum-name { color: var(--ink); font-weight: 500; }
+.alum-list .alum-name::after { content: "\00b7"; color: var(--ink-mute); font-weight: 400; margin: 0 0.45rem; }

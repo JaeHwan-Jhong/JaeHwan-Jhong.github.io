@@ -979,5 +979,15 @@ a:hover { border-bottom-color: var(--accent); }
 .alum-group:first-of-type { margin-top: 0.5rem; }
 
 .alum-list { margin-bottom: 0.5rem; }
+
+.alum-list li {
+  grid-template-columns: 95px 215px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
 .alum-list .alum-name { color: var(--ink); font-weight: 500; }
-.alum-list .alum-name::after { content: "\00b7"; color: var(--ink-mute); font-weight: 400; margin: 0 0.45rem; }
+
+@media (max-width: 760px) {
+  .alum-list li { grid-template-columns: 1fr; gap: 0.15rem; }
+}
